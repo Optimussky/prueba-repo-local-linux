@@ -15,3 +15,14 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class DataSystem(models.Model):
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4,editable=False)
+    systemName = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.systemName} {self.email}"
+
